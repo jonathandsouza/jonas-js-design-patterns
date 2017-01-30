@@ -1,1 +1,1 @@
-# jonas-js-design-patterns
+# Design Patterns
