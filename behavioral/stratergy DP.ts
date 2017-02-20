@@ -1,3 +1,14 @@
+/*
+    Name: Strategy DP.
+
+    Problem :  We want to give Bird the ability to fly, an easy approach would be to create a method in Animal
+    called fly (which returns weather an animal can fly ) and hope all sub classes override this method. This however
+    is not a good approach as there is a chance that it might not get overridden, hence causing un-expected behaviour
+
+     Solution: We abstract out the flight capability into an abstraction (Interface in this instance) and create getters/setters
+     to initialize the functionality. This approach is also known as composition.
+
+*/
 abstract class Animal {
 
     private _name: string;
@@ -27,7 +38,6 @@ abstract class Animal {
 
 }
 
-
 class Dog extends Animal {
 
     constructor(name: string, flightCapability: Flys) {
@@ -37,7 +47,6 @@ class Dog extends Animal {
     }
 
 }
-
 
 class Bird extends Animal {
 
@@ -49,11 +58,9 @@ class Bird extends Animal {
 
 }
 
-
 interface  Flys {
     fly: () => string;
 }
-
 
 class CantFly implements Flys {
 
@@ -71,7 +78,6 @@ class CanFly implements Flys {
 
 }
 
-
 function main() {
 
     let tweety: Animal = new Bird("tweety", new CanFly());
@@ -83,7 +89,6 @@ function main() {
 
     console.log(tweety.flightCapability.fly());
     console.log(sparky.flightCapability.fly());
-
 
 };
 main();
